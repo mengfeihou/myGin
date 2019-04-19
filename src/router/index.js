@@ -38,6 +38,8 @@ const transactionPos = r => require.ensure([], () => r(require('../views/account
 const payment = r => require.ensure([], () => r(require('../views/account/payment')), 'payment');
 // 修改后展示
 const paymentText = r => require.ensure([], () => r(require('../views/account/paymentText')), 'paymentText');
+// 我的邀请码
+const inviteCode = r => require.ensure([], () => r(require('../views/account/inviteCode')), 'inviteCode');
 
 Vue.use(Router)
 export default new Router({
@@ -61,5 +63,6 @@ export default new Router({
 		{path: '/transactionPos',name: 'transactionPos', component: transactionPos},
 		{path: '/payment',name: 'payment', component: payment},
 		{path: '/paymentText',name: 'paymentText', component: paymentText},
+		{path: '/inviteCode',name: 'inviteCode', component: inviteCode},
 	  ]
 })

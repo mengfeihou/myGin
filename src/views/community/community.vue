@@ -48,10 +48,10 @@
                 <van-tabbar-item @click="gopath('/home')">
                     <img slot="icon" slot-scope="props" :src="props.active ? icon.active : icon.normal">
                 </van-tabbar-item>
-                <van-tabbar-item>
+                <van-tabbar-item  @click="gopath('/community')">
                     <img slot="icon" slot-scope="props2" :src="props2.active ? icon2.active : icon2.normal">
                 </van-tabbar-item>
-                <van-tabbar-item  @click="gopath('/community')">
+                <van-tabbar-item>
                     <img slot="icon" slot-scope="props3" :src="props3.active ? icon3.active : icon3.normal">
                 </van-tabbar-item>
                 <van-tabbar-item @click="gopath('/my')">
@@ -68,7 +68,7 @@ export default {
     data() {
         return{
             tabactive: 2,
-            active: 2,
+            active: 1,
             icon: {
                 active: 'static/images/my/首页_on@2x.png',
                 normal: 'static/images/my/首页@2x.png'

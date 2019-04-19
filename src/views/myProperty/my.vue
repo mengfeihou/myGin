@@ -20,7 +20,7 @@
 
         <div class="content">
             <ul>
-                <li>
+                <li @click="gopath('/inviteCode')">
                     <div>
                         <p><img src="static/images/my/邀请码@2x.png" alt=""/></p>
                         <p>&nbsp;&nbsp;我的邀请码</p>
@@ -93,10 +93,10 @@
                 <van-tabbar-item @click="gopath('/home')">
                     <img slot="icon" slot-scope="props" :src="props.active ? icon.active : icon.normal">
                 </van-tabbar-item>
-                <van-tabbar-item>
+                <van-tabbar-item  @click="gopath('/community')">
                     <img slot="icon" slot-scope="props2" :src="props2.active ? icon2.active : icon2.normal">
                 </van-tabbar-item>
-                <van-tabbar-item  @click="gopath('/community')">
+                <van-tabbar-item>
                     <img slot="icon" slot-scope="props3" :src="props3.active ? icon3.active : icon3.normal">
                 </van-tabbar-item>
                 <van-tabbar-item @click="gopath('/my')">
