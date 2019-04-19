@@ -1,24 +1,26 @@
 <template>
-    <div class="proList">
-        <div class="proListTop">
-            种子记录
-        </div>
+    <div class="orderList">
+        <!-- <div class="orderListTop">
+            出售记录
+        </div> -->
         <div class="content">
             <ul>
                 <li v-for="(item,index) in arrList" :key="item.id">
                     <p class="contentText">
-                        <span style="color:#00C0C2;" v-if="item.type === 'zhuanrang'">{{item.text}}</span>
-                        <span style="color:#02BF6D;" v-if="item.type === 'jieshou'">{{item.text}}</span>
+                        <span>订单号：{{item.text}}</span>
+                        <span v-if="item.type === 'end'">{{item.typeName}}&nbsp;&nbsp;></span>
+                        <span style="color:#02BF6D;" v-if="item.type === 'pc'">{{item.typeName}}&nbsp;&nbsp;></span>
+                        <span style="color:#CB1801;"  v-if="item.type === 'loding'">{{item.typeName}}&nbsp;&nbsp;></span>
                     </p>
                     <div class="contentList">
                         <!-- <div> -->
                             <p>
-                                <span>时间</span>
+                                <span>创建时间</span>
                                 <span>{{item.time}}</span>
                             </p>
                             <p>
-                                <span>昵称</span>
-                                <span>{{item.xuqiu}}</span>
+                                <span>匹配时间</span>
+                                <span>{{item.time}}</span>
                             </p>
                             <p>
                                 <span>数量</span>
@@ -49,11 +51,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.proList{
+.orderList{
     background: rgba(45,45,45,1);
     margin: 1.173333rem;
-    margin-bottom: 0;
-    .proListTop{
+    .orderListTop{
         color: #DEA853;
         font-size: .853333rem;
         padding-bottom: .746667rem;

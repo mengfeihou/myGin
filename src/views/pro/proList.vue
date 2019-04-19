@@ -54,6 +54,7 @@ export default {
 .proList{
     background: rgba(45,45,45,1);
     margin: 1.173333rem;
+    margin-bottom: 0;
     .proListTop{
         color: #DEA853;
         font-size: .853333rem;

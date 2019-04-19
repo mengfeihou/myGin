@@ -1,8 +1,5 @@
 <template>
-    <div class="proList">
-        <div class="proListTop">
-            种子记录
-        </div>
+    <div class="posPowList">
         <div class="content">
             <ul>
                 <li v-for="(item,index) in arrList" :key="item.id">
@@ -17,8 +14,8 @@
                                 <span>{{item.time}}</span>
                             </p>
                             <p>
-                                <span>昵称</span>
-                                <span>{{item.xuqiu}}</span>
+                                <span>备注</span>
+                                <span id="text2">{{item.beizhu}}</span>
                             </p>
                             <p>
                                 <span>数量</span>
@@ -34,12 +31,25 @@
 
 <script>
 export default {
-    props:["arrItem"],
+    name:"posPowList",
+    props: {
+        arrItem: {
+            type: Array,
+            default:[]
+        }
+    },
+    computed: {
+        arrList() {
+            console.log(this.arrItem)
+            return this.arrItem
+        }
+    },
+     /* props:["arrItem"],
     computed: {
         arrList() {
             return this.arrItem
         }
-    },
+    }, */
     data() {
         return{
 
@@ -49,11 +59,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.proList{
+.posPowList{
     background: rgba(45,45,45,1);
     margin: 1.173333rem;
     margin-bottom: 0;
-    .proListTop{
+    .posPowList{
         color: #DEA853;
         font-size: .853333rem;
         padding-bottom: .746667rem;
@@ -84,6 +94,9 @@ export default {
                         span:nth-child(2){
                             font-size: .8rem;
                             padding: .586667rem 0;
+                        }
+                        #text2{
+                            font-size: .693333rem;
                         }
                     }
                 }

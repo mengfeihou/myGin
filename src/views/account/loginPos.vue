@@ -1,47 +1,47 @@
 <template>
-    <div class="seed">
-        <div class="seedTop">
+    <div class="loginPos">
+        <div class="loginPosTop">
             <van-nav-bar
-                title="种子"
+                title="登录密码"
                 left-arrow
                 @click-left="goback"
                 />
         </div>
 
-        <div class="content">
-            <div>
-                <p class="text1"> 当前有可用种子</p>
-                <p class="text2">2000</p>
-            </div>
-        </div>
-
         <div class="main">
             <div>
                 <p>
-                    <span>转入昵称</span>
+                   <img src="static/images/account/密码@2x.png" alt="">
                 </p>
-                <input class="inputText" type="text" value="" id='name' placeholder="请输入转入昵称" />
+                <input class="inputText" type="text" value="" id='name' placeholder="请输入手机号或邮箱" />
             </div>
             <div>
-                <p>转出数量</p>
-                <input class="inputText" type="text" value="" id='name' placeholder="请输入转出数量" />
+                <p><img src="static/images/account/密码@2x.png" alt=""></p>
+                <input class="inputText" type="text" value="" id='name' placeholder="请输入验证码" />
+                <a style="color:#DEA853; padding-top: 1.066667rem;font-size:.8rem;">获取验证码</a>
             </div>
-            <div class="subBtn">
-                <button>转让</button>
+            <div>
+                <p><img src="static/images/account/密码@2x.png" alt=""></p>
+                <input style="width:14.813333rem;" class="inputText" type="text" value="" id='name' placeholder="新密码为6~16个字符，建议不要纯数字" />
+            </div>
+            <div>
+                <p><img src="static/images/account/密码@2x.png" alt=""></p>
+                <input class="inputText" type="text" value="" id='name' placeholder="再次输入相同密码" />
             </div>
         </div>
 
-        <div>
-            <seed-list :arrItem = "arr"></seed-list>
+        
+        <div class="btn">
+            <div class="subBtn">
+                <button>提交</button>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import SeedList from './seedList.vue'
 export default {
-    name: "seed",
-    components:{SeedList},
+    name: "pos",
     data() {
         return{
             arr: [
@@ -87,14 +87,19 @@ export default {
     methods: {
         goback(){
             this.$router.go(-1)
-        }
+        },
+        gopath(path) {
+            this.$router.push({
+                path: path,
+            })
+		},
     }
 }
 </script>
 <style lang="scss" scoped>
-    .seed{
+    .loginPos{
         background: rgba(45,45,45,1);
-        .seedTop{
+        .loginPosTop{
             height: 3.466667rem;
             .van-nav-bar{
                 height: 3.466667rem;
@@ -106,25 +111,6 @@ export default {
                 font-size: 1.066667rem;
             }
         }
-        .content{
-            margin: .693333rem;
-            background:rgba(50,50,50,1);
-            border:1px solid rgba(21, 21, 21, 1);
-            border-radius:3px;
-            color:#F4C31B;
-            font-size: .746667rem;
-            text-align: center;
-            .text1{
-                padding-top: 1.173333rem;
-                padding-bottom: .64rem;
-                font-size: .746667rem;
-            }
-            .text2{
-                padding-bottom: 1.12rem;
-                font-size: 1.173333rem;
-            }
-        }
-
         .main{
             margin: .693333rem;
             background:rgba(50,50,50,1);
@@ -132,35 +118,40 @@ export default {
             border-radius:3px;
             color:rgba(244,195,27,1);
             font-size: .853333rem;
-            // padding: 0 .693333rem;
             .inputText{
                 background-color: rgba(0,0,0,0);
                 border: none;
+                padding-top: 1.066667rem;
                 margin-bottom: .906667rem;
             }
             div{
+                 display: flex;
                 border-bottom: 1px solid rgba(21, 21, 21, 1);
                 padding: 0 .693333rem;
                 p{
                     display: flex;
                     justify-content: space-between;
                     padding:.64rem 0 ;
+                    img{
+                        width: 1.066667rem;
+                        height: 1.066667rem;
+                        padding-right: .64rem;
+                        padding-top: .32rem;
+                    }
                     span:nth-child(2) {
                         color: #B58F46;
                         font-size: .693333rem;
                     }
                 }
             }
+        }
+
+        .btn{
             .subBtn{
                 border: none;
                 text-align: center;
-                p{
-                    font-size: 12px;
-                    color: #7F735C;
-                    padding-left: 4.48rem;
-                }
                 button{
-                    width:10.666667rem;
+                    width:18.4rem;
                     height:2.133333rem;
                     background:rgba(222,168,83,1);
                     border-radius:40px;

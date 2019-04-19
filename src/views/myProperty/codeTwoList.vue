@@ -1,8 +1,8 @@
 <template>
-    <div class="proList">
-        <div class="proListTop">
+    <div class="codeTwoList">
+        <!-- <div class="proListTop">
             种子记录
-        </div>
+        </div> -->
         <div class="content">
             <ul>
                 <li v-for="(item,index) in arrList" :key="item.id">
@@ -49,15 +49,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.proList{
+.codeTwoList{
     background: rgba(45,45,45,1);
     margin: 1.173333rem;
     margin-bottom: 0;
-    .proListTop{
+    /* .proListTop{
         color: #DEA853;
         font-size: .853333rem;
         padding-bottom: .746667rem;
-    }
+    } */
     .content{
         ul{
             width: 100%;

@@ -2,7 +2,7 @@
     <div class="seed">
         <div class="seedTop">
             <van-nav-bar
-                title="种子"
+                title="POS钱包"
                 left-arrow
                 @click-left="goback"
                 />
@@ -10,7 +10,7 @@
 
         <div class="content">
             <div>
-                <p class="text1"> 当前有可用种子</p>
+                <p class="text1"> 当前拥有GIN</p>
                 <p class="text2">2000</p>
             </div>
         </div>
@@ -18,30 +18,37 @@
         <div class="main">
             <div>
                 <p>
-                    <span>转入昵称</span>
+                    <span>对方地址</span>
                 </p>
-                <input class="inputText" type="text" value="" id='name' placeholder="请输入转入昵称" />
+                <input class="inputText" type="text" value="" id='name' placeholder="请输入对方地址" />
             </div>
             <div>
                 <p>转出数量</p>
                 <input class="inputText" type="text" value="" id='name' placeholder="请输入转出数量" />
             </div>
+            <div>
+                <p>交易密码</p>
+                <input class="inputText" type="text" value="" id='name' placeholder="请输入交易密码" />
+            </div>
+        </div>
+        <div class="btn">
+            <p>
+                <span>转出规矩：</span>
+                <span>GIN只能在本平台的钱包之间互转，暂时不能转到其他平台的钱包。</span>
+            </p>
             <div class="subBtn">
                 <button>转让</button>
             </div>
-        </div>
-
-        <div>
-            <seed-list :arrItem = "arr"></seed-list>
+            <a @click="gopath('/posList')">
+                资金记录
+            </a>
         </div>
     </div>
 </template>
 
 <script>
-import SeedList from './seedList.vue'
 export default {
-    name: "seed",
-    components:{SeedList},
+    name: "pos",
     data() {
         return{
             arr: [
@@ -87,7 +94,12 @@ export default {
     methods: {
         goback(){
             this.$router.go(-1)
-        }
+        },
+        gopath(path) {
+            this.$router.push({
+                path: path,
+            })
+		},
     }
 }
 </script>
@@ -151,16 +163,22 @@ export default {
                     }
                 }
             }
+        }
+
+        .btn{
+            p{
+                font-size: 12px;
+                color: #7F735C;
+                padding:0 .8rem;
+                span:nth-child(1){
+                    color:#CB1801;
+                }
+            }
             .subBtn{
                 border: none;
                 text-align: center;
-                p{
-                    font-size: 12px;
-                    color: #7F735C;
-                    padding-left: 4.48rem;
-                }
                 button{
-                    width:10.666667rem;
+                    width:18.4rem;
                     height:2.133333rem;
                     background:rgba(222,168,83,1);
                     border-radius:40px;
@@ -170,6 +188,11 @@ export default {
                     margin-bottom: .8rem;
                 }
                 
+            }
+            a{
+                display: block;
+                color: #DEA853;
+                text-align: center;
             }
         }
     }

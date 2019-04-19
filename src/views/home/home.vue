@@ -23,7 +23,7 @@
 
         <div class="content">
             <div>
-                <div>
+                <div  @click="gopath('/pro')">
                     <img src="static/images/home/bg1@2x.png" />
                     <span>申购矿机</span>
                 </div>
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div>
-                <div>
+                <div  @click="gopath('/sell')">
                     <img src="static/images/home/bg2@2x.png" />
                     <span>出售GIN</span>
                 </div>
@@ -63,16 +63,20 @@
         </div>
 
         <div class="footer">
-			<van-tabbar v-model="tabactive" active-color="#A09070">
-				<van-tabbar-item  icon="home-o" @click="gopath('/home')">
-				</van-tabbar-item>
-				<van-tabbar-item  icon="chat-o">
-				</van-tabbar-item>
-				<van-tabbar-item  icon="bag-o"  @click="gopath('/community')">
-				</van-tabbar-item>
-				<van-tabbar-item  icon="manager-o">
-				</van-tabbar-item>
-			</van-tabbar>
+            <van-tabbar v-model="active">
+                <van-tabbar-item @click="gopath('/home')">
+                    <img slot="icon" slot-scope="props" :src="props.active ? icon.active : icon.normal">
+                </van-tabbar-item>
+                <van-tabbar-item>
+                    <img slot="icon" slot-scope="props2" :src="props2.active ? icon2.active : icon2.normal">
+                </van-tabbar-item>
+                <van-tabbar-item  @click="gopath('/community')">
+                    <img slot="icon" slot-scope="props3" :src="props3.active ? icon3.active : icon3.normal">
+                </van-tabbar-item>
+                <van-tabbar-item @click="gopath('/my')">
+                    <img slot="icon" slot-scope="props4" :src="props4.active ? icon4.active : icon4.normal">
+                </van-tabbar-item>
+            </van-tabbar>
 		</div>
     </div>
 </template>
@@ -82,8 +86,25 @@ export default {
     name: "home",
     data() {
         return{
+            active:0,
             current: 0,
             tabactive: 0,
+            icon: {
+                active: 'static/images/my/首页_on@2x.png',
+                normal: 'static/images/my/首页@2x.png'
+            },
+            icon2: {
+                active: 'static/images/my/社区_on@2x.png',
+                normal: 'static/images/my/社区@2x.png',
+            },
+            icon3: {
+                active: 'static/images/my/商城_on@2x.png',
+                normal: 'static/images/my/商城@2x.png',
+            },
+            icon4: {
+                active: 'static/images/my/我的_on@2x.png',
+                normal: 'static/images/my/我的@2x.png',
+            },
             arrList: [
                 {
                     id: "1",
@@ -247,7 +268,6 @@ export default {
             }
         }
         .footer{
-            height:2.666667rem; 
             background:rgba(18,22,25,1);
             .van-tabbar{
                 background:rgba(18,22,25,1);

@@ -25,19 +25,19 @@
                     <span>我的矿机</span>
                     <span>10&nbsp;&nbsp;></span>
                 </li>
-                 <li>
+                 <li  @click="gopath('/seed')">
                     <span>种子</span>
                     <span>10&nbsp;&nbsp;></span>
                 </li>
-                <li>
+                <li  @click="gopath('/activationCode')">
                     <span>激活码</span>
                     <span>10&nbsp;&nbsp;></span>
                 </li>
-                <li>
+                <li  @click="gopath('/pos')">
                     <span>POS钱包</span>
                     <span>10&nbsp;&nbsp;></span>
                 </li>
-                <li>
+                <li  @click="gopath('/pow')">
                     <span>POW钱包</span>
                     <span>10909.0&nbsp;&nbsp;></span>
                 </li>

@@ -1,8 +1,8 @@
 <template>
-    <div class="seed">
-        <div class="seedTop">
+    <div class="activationCode">
+        <div class="activationCodeTop">
             <van-nav-bar
-                title="种子"
+                title="激活码"
                 left-arrow
                 @click-left="goback"
                 />
@@ -10,8 +10,8 @@
 
         <div class="content">
             <div>
-                <p class="text1"> 当前有可用种子</p>
-                <p class="text2">2000</p>
+                <p class="text1">使用说明：</p>
+                <p class="text2">激活码用于社区成员激活账户所用，由上往下转让</p>
             </div>
         </div>
 
@@ -31,22 +31,49 @@
             </div>
         </div>
 
-        <div>
-            <seed-list :arrItem = "arr"></seed-list>
+
+        <div class="list">
+            <van-tabs title-inactive-color="#967A45" :line-width="30" v-model="active" color="#DEA853" title-active-color="#DEA853" background="0"> 
+                <van-tab title="激活码">
+                    <code-list :arrItem = "arrCode"></code-list>
+                </van-tab>
+                <van-tab title="转让记录">
+                    <two-list :arrItem = "arr"></two-list>
+                </van-tab>
+            </van-tabs>
         </div>
     </div>
 </template>
 
 <script>
-import SeedList from './seedList.vue'
+import CodeList from './codeList.vue'
+import TwoList from './codeTwoList.vue'
 export default {
-    name: "seed",
-    components:{SeedList},
+    name: "activationCode",
+    components:{
+        CodeList,
+        TwoList
+    },
     data() {
         return{
+            active:0,
+            arrCode: [
+                {
+                    id:1,
+                    code: "e0b9580e5086d2ab",
+                    state: "未使用",
+                    type: "loding"
+                },
+                {
+                    id:2,
+                    code: "e0b9580e5086d2ab",
+                    state: "已使用（金中月）",
+                    type: "end"
+                }
+            ],
             arr: [
                 {
-                    id:"1",
+                    id:11,
                     type: "zhuanrang",
                     typeName: "已完成",
                     text:"转让",
@@ -55,7 +82,7 @@ export default {
                     shuliang: "5236.00"
                 },
                 {
-                    id:"2",
+                    id:12,
                     type: "jieshou",
                     typeName: "已匹配",
                     text:"接收",
@@ -64,7 +91,7 @@ export default {
                     shuliang: "5236.00"
                 },
                 {
-                    id:"3",
+                    id:13,
                     type: "zhuanrang",
                     typeName: "待匹配",
                     text:"转让",
@@ -73,7 +100,7 @@ export default {
                     shuliang: "5236.00"
                 },
                 {
-                    id:"4",
+                    id:14,
                     type: "jieshou",
                     typeName: "已完成",
                     text:"接收",
@@ -92,9 +119,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    .seed{
+    .activationCode{
         background: rgba(45,45,45,1);
-        .seedTop{
+        .activationCodeTop{
             height: 3.466667rem;
             .van-nav-bar{
                 height: 3.466667rem;
@@ -113,15 +140,13 @@ export default {
             border-radius:3px;
             color:#F4C31B;
             font-size: .746667rem;
-            text-align: center;
+            padding-left: .64rem;
             .text1{
                 padding-top: 1.173333rem;
                 padding-bottom: .64rem;
-                font-size: .746667rem;
             }
             .text2{
                 padding-bottom: 1.12rem;
-                font-size: 1.173333rem;
             }
         }
 
@@ -174,4 +199,3 @@ export default {
         }
     }
 </style>
-
